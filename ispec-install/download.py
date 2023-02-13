@@ -33,24 +33,24 @@ class Downloader(object):
                 f.flush()
                 timelapse = time.time()-start_time
                 if timelapse>1:
-                    done = int(50 * temp_size / total_size)
+                    done = int(50*temp_size/total_size)
                     start_time = time.time()
                     speed = len(chunk)/timelapse
                     if 0<=speed<1e3:
                         sys.stdout.write(
                             '\rDownloading: [%s%s] %d%%%9.2f B/s'\
-                                %('█' * done,' '*(50-done),100*temp_size/total_size,speed)
+                                %('█'*done,' '*(50-done),100*temp_size/total_size,speed)
                         )
                         sys.stdout.flush()
                     if 1e3<=speed<1e6:
                         sys.stdout.write(
                             '\rDownloading: [%s%s] %d%%%8.2f KB/s'\
-                                %('█' * done,' '*(50-done),100*temp_size/total_size,speed/1024,)
+                                %('█'*done,' '*(50-done),100*temp_size/total_size,speed/1024,)
                         )
                         sys.stdout.flush()
                     elif 1e6<=speed:
                         sys.stdout.write(
                             '\rDownloading: [%s%s] %d%%%8.2f MB/s'\
-                                %('█' * done,' '*(50-done),100*temp_size/total_size,speed/1048576,)
+                                %('█'*done,' '*(50-done),100*temp_size/total_size,speed/1048576,)
                         )
                         sys.stdout.flush()
