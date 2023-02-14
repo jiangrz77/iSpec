@@ -15,7 +15,7 @@ class Downloader(object):
         if os.path.exists(self.file_path):
             temp_size = os.path.getsize(self.file_path)
             print('Continuing unfinished download: %s'%(self.file_path))
-            print('Current: %.2f MB. Total：%.2f MB, Downdloaded：%2.2f%%'%(temp_size/1048576, total_size/1048576, 100*temp_size/total_size))
+            print('Current: %.2f MB. Total：%.2f MB, Downdloaded：%2.2f%%'%(temp_size/1_048_576, total_size/1_048_576, 100*temp_size/total_size))
         else:
             temp_size = 0
             print('Downloading file: %s'%(self.file_path))
