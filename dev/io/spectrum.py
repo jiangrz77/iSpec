@@ -28,8 +28,8 @@ class Spectrum(Logged):
     
     def _read_fits(self, pathname, source, *args, hdr=False, **kwargs):
         tmp_fits = read_from_fits(pathname, source, *args, **kwargs)
-        self._all_data = tmp_fits.data
         self.flux = tmp_fits.flux
+        self.error = tmp_fits.error
         self.wavelength = tmp_fits.wavelength
         if hdr:
             self.header = tmp_fits.header
